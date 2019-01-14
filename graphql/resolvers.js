@@ -10,6 +10,4 @@ const resolvers = {
     }
 };
 
-
-
-// export default resovlers;
+ export default resolvers;

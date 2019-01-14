@@ -5,6 +5,7 @@ type Danny {
 }
 
 type Query {
-    person: Danny!   
+    person: Danny!
+       
 }
 
