@@ -1,40 +1,53 @@
 // import { strict } from "assert";
 
-export const people = [
+let movies = [
     {   
-        id: "0",
-        name: "Danny",
-        age: 31,
-        gender: "male"
+        id: 0,
+        name: "Starwars",
+        score: 3
     },
-    {
-        id: "1",
-        name: "mile",
-        age: 18,
-        gender: "male"
+    {   
+        id: 1,
+        name: "Avengers",
+        score: 6
     },
-    {
-        id: "2",
-        name: "chris",
-        age: 25,
-        gender: "male"
+    {   
+        id: 2,
+        name: "Godfather",
+        score: 8
     },
-    {
-        id: "3",
-        name: "nodi",
-        age: 22,
-        gender: "male"
+    {   
+        id: 3,
+        name: "Logan",
+        score: 8
     },
-    {
-        id: "4",
-        name: "JD",
-        age: 41,
-        gender: "male"
-    },
+
 ];
 
+export const getMovies = () => movies;
 
 export const getById = id => {
-    const filteredPeople = people.filter(person => person.id === String(id));
-    return filteredPeople[0];
+    const filteredMovies = movies.filter(movie => movie.id === id);
+    return filteredMovies[0];
 }
+
+export const deleteMovie = id => {
+    const cleanedMovies = movies.filter(movie => movie.id !== id);
+    if(movies.length > cleanedMovies.length){
+        movies = cleanedMovies;
+        return true;
+    }else {
+        return false;
+    }
+}
+
+
+export const addMovie = (name,score) =>{
+    const newMovie = {
+        id: `${movies.length + 1}`,
+        name,
+        score
+    }
+    movies.push(newMovie);
+    return newMovie;
+};
